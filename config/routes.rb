@@ -1,4 +1,59 @@
 Rails.application.routes.draw do
+
+  root "statuses#index"
+  
+  # Routes for the Reaction resource:
+  # CREATE
+  get "/reactions/new", :controller => "reactions", :action => "new"
+  post "/create_reaction", :controller => "reactions", :action => "create"
+
+  # READ
+  get "/reactions", :controller => "reactions", :action => "index"
+  get "/reactions/:id", :controller => "reactions", :action => "show"
+
+  # UPDATE
+  get "/reactions/:id/edit", :controller => "reactions", :action => "edit"
+  post "/update_reaction/:id", :controller => "reactions", :action => "update"
+
+  # DELETE
+  get "/delete_reaction/:id", :controller => "reactions", :action => "destroy"
+  #------------------------------
+
+  # Routes for the Comment resource:
+  # CREATE
+  get "/comments/new", :controller => "comments", :action => "new"
+  post "/create_comment", :controller => "comments", :action => "create"
+
+  # READ
+  get "/comments", :controller => "comments", :action => "index"
+  get "/comments/:id", :controller => "comments", :action => "show"
+
+  # UPDATE
+  get "/comments/:id/edit", :controller => "comments", :action => "edit"
+  post "/update_comment/:id", :controller => "comments", :action => "update"
+
+  # DELETE
+  get "/delete_comment/:id", :controller => "comments", :action => "destroy"
+  #------------------------------
+
+  # Routes for the Status resource:
+  # CREATE
+  get "/statuses/new", :controller => "statuses", :action => "new"
+  post "/create_status", :controller => "statuses", :action => "create"
+
+  # READ
+  get "/statuses", :controller => "statuses", :action => "index"
+  get "/statuses/:id", :controller => "statuses", :action => "show"
+
+  # UPDATE
+  get "/statuses/:id/edit", :controller => "statuses", :action => "edit"
+  post "/update_status/:id", :controller => "statuses", :action => "update"
+
+  # DELETE
+  get "/delete_status/:id", :controller => "statuses", :action => "destroy"
+  #------------------------------
+
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
