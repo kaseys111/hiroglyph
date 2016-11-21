@@ -42,9 +42,9 @@
       <div class="col-md-4" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <% if current_user != nil %>
-            <li><a href="/users/<%= current_user.id %>">
+            <li class="pic-box nav-pic-box"><a href="/users/<%= current_user.id %>">
             <% if current_user.profile_pic.file != nil %>
-              <img src="<%= current_user.profile_pic %>" />
+              <img class="profilepic" src="<%= current_user.profile_pic %>" />
             <% else %>
               <img src="/images/empty_profile_pic.png" />
             <% end %>

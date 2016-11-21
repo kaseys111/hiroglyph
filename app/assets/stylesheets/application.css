@@ -100,10 +100,14 @@ body {
   line-height: 40px;
 }
 
-.navbar-nav img {
+.nav-pic-box {
+  width: 40px;
   height: 40px;
-  border-radius: 50px;
+  margin-top: 20px;
+  margin-right: 10px !important;
+  margin-left: 0px !important;
 }
+
 .navbar-mid {
   padding-left: 110px;
 }
@@ -135,9 +139,27 @@ body {
   z-index: 1000;
 }
 
-.profilepic {
+.profile-pic-box {
+  width: 150px;
   height: 150px;
-  border-radius: 100px;
+}
+
+.pic-box {
+  border-radius: 150px;
+  object-fit: cover;
+  overflow: hidden;
+  position: relative;
+  margin-left: 50px;
+  margin-right: 0px;
+}
+
+.profilepic {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
 }
 
 .friends {
@@ -158,6 +180,57 @@ body {
   border-radius: 5px;
 }
 
+
+/* Status feed */
+.container {
+  overflow: hidden;
+}
+
+.form-group label {
+  margin-bottom: 10px;
+}
+
+hr {
+  border-color: #98978b;
+  margin: 0px;
+}
+
+.content .form-control {
+  border: none;
+  width: 100%;
+}
+
+/*.status-user img {
+  height: 60px;
+  border-radius: 50px;
+}*/
+
+.status-pic-box {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin: auto;
+}
+
+.status h4 {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.status h6 {
+  font-size: 11px;
+  text-align: right;
+  color: #98978b;
+}
+
+.status-table {
+  display: table;
+}
+
+.status-user, .status, .status-controls {
+  background: white;
+  display: table-cell;
+}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

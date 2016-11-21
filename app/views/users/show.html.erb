@@ -4,7 +4,7 @@
   <div class="sidebar-wrapper container">
 
       <div class="row padding-inside-top-sm">
-        <div class="col-md-12">
+        <div class="col-md-12 profile-pic-box pic-box">
           <% if @user.profile_pic.file != nil %>
             <img class="profilepic" src="<%= @user.profile_pic %>" />
           <% else %>
@@ -27,8 +27,16 @@
 
       <div class="row padding-inside-top-xs">
         <div class="col-md-12">
+          <% if @user.birthday != nil %>
           <h5>Birthday: <%= @user.birthday.strftime("%B %-d, %Y") %></h5>
+          <% else %>
+          <h5>Birthday: Ageless</h5>
+          <% end %>
+          <% if @user.location != nil %>
           <h5>Location: <%= @user.location %></h5>
+          <% else %>
+          <h5>Location: Earth, Solar System, Sector ZZ9 Plural Z Alpha</h5>
+          <% end %>
         </div>
       </div>
 

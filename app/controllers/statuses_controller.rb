@@ -1,6 +1,6 @@
 class StatusesController < ApplicationController
   def index
-    @statuses = Status.all
+    @statuses = Status.all.order(created_at: :desc)
 
     render("statuses/index.html.erb")
   end
@@ -26,7 +26,7 @@ class StatusesController < ApplicationController
     save_status = @status.save
 
     if save_status == true
-      redirect_to("/users/#{@status.user_id}")
+      redirect_to(:back)
     else
       render("statuses/new.html.erb")
     end
