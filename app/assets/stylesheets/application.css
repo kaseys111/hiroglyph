@@ -1,3 +1,99 @@
+/* Vertical spacing */
+
+/* My standard vertical spacing classes */
+
+.padding-inside-top-xs {
+  padding-top: 10px;
+}
+
+.padding-inside-top-sm {
+  padding-top: 20px;
+}
+
+.padding-inside-top-md {
+  padding-top: 50px;
+}
+
+.padding-inside-top-lg {
+  padding-top: 150px;
+}
+
+.padding-inside-top-xl {
+  padding-top: 200px;
+}
+
+.padding-inside-bottom-xs {
+  padding-bottom: 10px;
+}
+
+.padding-inside-bottom-sm {
+  padding-bottom: 20px;
+}
+
+.padding-inside-bottom-md {
+  padding-bottom: 50px;
+}
+
+.padding-inside-bottom-lg {
+  padding-bottom: 150px;
+}
+
+.padding-inside-bottom-xl {
+  padding-bottom: 200px;
+}
+
+.margin-above-top-xs {
+  margin-top: 10px;
+}
+
+.margin-above-top-sm {
+  margin-top: 20px;
+}
+
+.margin-above-top-md {
+  margin-top: 50px;
+}
+
+.margin-above-top-lg {
+  margin-top: 150px;
+}
+
+.margin-below-bottom-xs {
+  margin-bottom: 10px;
+}
+
+.margin-below-bottom-sm {
+  margin-bottom: 20px;
+}
+
+.margin-below-bottom-md {
+  margin-bottom: 50px;
+}
+
+.margin-below-bottom-lg {
+  margin-bottom: 150px;
+}
+
+.margin-below-bottom-xl {
+  margin-bottom: 200px;
+}
+
+
+/* Body */
+
+body {
+  background: #f8f5f0;
+}
+
+.page-content-wrapper .container {
+  width: 970px;
+}
+
+.wrapper {
+  padding-left: 200px;
+}
+
+
 /* Navbar */
 
 .navbar-nav i, span {
@@ -25,6 +121,43 @@
 .navbar, body {
   font-family: Roboto;
 }
+
+
+/* Sidebar */
+.sidebar-wrapper {
+  margin-left: -250px;
+  left: 250px;
+  width: 250px;
+  background: #f8f5f0;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.profilepic {
+  height: 150px;
+  border-radius: 100px;
+}
+
+.friends {
+  height: 50px;
+  border-radius: 50px;
+}
+
+
+/* Page content */
+.page-content-wrapper {
+  width: 100%;
+}
+
+.content {
+  background-color: white;
+  border-bottom: solid 1.5px #DCDDD7;
+  border-right: solid 1.5px #DCDDD7;
+  border-radius: 5px;
+}
+
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

@@ -1,1 +1,131 @@
+<div class="wrapper">
 
+  <!-- Sidebar -->
+  <div class="sidebar-wrapper container">
+
+      <div class="row padding-inside-top-sm">
+        <div class="col-md-12">
+          <% if @user.profile_pic.file != nil %>
+            <img class="profilepic" src="<%= @user.profile_pic %>" />
+          <% else %>
+            <img class="profilepic" src="/images/empty_profile_pic.png" />
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row padding-inside-top-xs">
+        <div class="col-md-12">
+          <h4><%= @user.first_name + " " + @user.last_name %></h4>
+        </div>
+      </div>
+
+      <div class="row padding-inside-top-xs">
+        <div class="col-md-12">
+          <a class="btn btn-primary" href="#">Add Friend</a>
+        </div>
+      </div>
+
+      <div class="row padding-inside-top-xs">
+        <div class="col-md-12">
+          <h5>Birthday: <%= @user.birthday.strftime("%B %-d, %Y") %></h5>
+          <h5>Location: <%= @user.location %></h5>
+        </div>
+      </div>
+
+      <div class="row padding-inside-top-xs">
+        <div class="col-md-12">
+          <h5>Friends</h5>
+        </div>
+
+        <div class="col-md-3">
+          <img class="friends" src="<% @user.profile_pic %>"/>
+        </div>
+
+        <div class="col-md-3">
+          <img class="friends" src="<% @user.profile_pic %>"/>
+        </div>
+
+        <div class="col-md-3">
+          <img class="friends" src="<% @user.profile_pic %>"/>
+        </div>
+
+        <div class="col-md-3">
+          <a href="#">See more</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Page content -->
+    <div class="page-content-wrapper">
+      <div class="container">
+        <div class="row padding-inside-top-md padding-inside-bottom-sm">
+
+          <div class="col-md-12">
+            <a class="btn btn-primary" href="/statuses/new">New Status</a>
+          </div>
+        </div>
+
+
+        <!-- Most current status -->
+        <div class="row padding-inside-top-xs content">
+
+          <% if @user.id == current_user.id %>
+
+            <% if @statuses.any? == false %>
+              <div class="col-md-offset-1 col-md-8">
+                <h3>You have no statuses!</h3>
+              </div>
+              <div class="col-md-2">
+                <a class="btn btn-primary" href="/statses/new">Post a new status</a>
+              </div>
+
+            <% else %>
+              <div class="col-md-offset-1 col-md-10">
+                <h3><%= @current.status %></h3>
+                <h6><%= time_ago_in_words(@current.created_at.in_time_zone("Central Time (US & Canada)")) %> ago</h6>
+              </div>
+              <div class="col-md-1">
+                <h6><a href="/statuses/<%= @current.id %>/edit">Edit</a></h6>
+                <h6><a href="/delete_status/<%= @current.id %>">Delete</a></h6>
+              </div>
+            <% end %>
+
+          <% else %>
+
+            <% if @statuses.any? == false %>
+              <div class="col-md-offset-1 col-md-11">
+                <h3><%= @user.first_name %> has no statuses!</h3>
+              </div>
+
+            <% else %>
+              <div class="col-md-offset-1 col-md-11">
+                <h3><%= @current.status %></h3>
+                <h6><%= time_ago_in_words(@current.created_at.in_time_zone("Central Time (US & Canada)")) %> ago</h6>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+
+
+        <!-- All other statuses -->
+
+          <% @statuses.drop(1).each do |status| %>
+            <div class="row padding-inside-top-xs padding-inside-bottom-xs margin-above-top-xs content">
+
+              <div class="col-md-offset-1 col-md-10">
+                <h5><%= status.status %></h5>
+                <h6><%= time_ago_in_words(status.created_at.in_time_zone("Central Time (US & Canada)")) %> ago</h6>
+              </div>
+
+              <% if @user.id == current_user.id %>
+                <div class="col-md-1">
+                  <h6><a href="/statuses/<%= status.id %>/edit">Edit</a></h6>
+                  <h6><a href="/delete_status/<%= status.id %>">Delete</a></h6>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>

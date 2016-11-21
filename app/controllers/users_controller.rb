@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @statuses = @user.statuses.order(created_at: :desc)
+    @current = @statuses.take
+
     render("/users/show.html.erb")
   end
 

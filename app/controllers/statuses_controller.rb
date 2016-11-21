@@ -26,7 +26,7 @@ class StatusesController < ApplicationController
     save_status = @status.save
 
     if save_status == true
-      redirect_to("/statuses/#{@status.id}", :notice => "Status created successfully.")
+      redirect_to("/users/#{@status.user_id}")
     else
       render("statuses/new.html.erb")
     end
@@ -47,7 +47,7 @@ class StatusesController < ApplicationController
     save_status = @status.save
 
     if save_status == true
-      redirect_to("/statuses/#{@status.id}", :notice => "Status updated successfully.")
+      redirect_to("/users/#{@status.user_id}")
     else
       render("statuses/edit.html.erb")
     end
@@ -59,9 +59,9 @@ class StatusesController < ApplicationController
     @status.destroy
 
     if URI(request.referer).path == "/statuses/#{@status.id}"
-      redirect_to("/", :notice => "Status deleted.")
+      redirect_to("/")
     else
-      redirect_to(:back, :notice => "Status deleted.")
+      redirect_to(:back)
     end
   end
 end
