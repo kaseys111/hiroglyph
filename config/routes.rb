@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root "statuses#index"
-  
+
   # Routes for the Reaction resource:
   # CREATE
   get "/reactions/new", :controller => "reactions", :action => "new"
@@ -54,6 +54,11 @@ Rails.application.routes.draw do
   #------------------------------
 
   devise_for :users
+
+  # Routes for users:x
+  get "/users", :controller => "users", :action => "index"
+  get "/users/:id", :controller => "users", :action => "show"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
