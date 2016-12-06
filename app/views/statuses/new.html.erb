@@ -1,6 +1,13 @@
 <div class="wrapper">
 
-  <div class "sidebar-wrapper container">
+  <div class="sidebar-wrapper container">
+    <div class="row">
+      <div class="col-md-12 keyboard" id="root">
+        <script>
+          kaseyIsGreat();
+        </script>
+      </div>
+    </div>
   </div>
 
   <div class="page-content-wrapper">
@@ -16,7 +23,7 @@
       <% end %>
 
       <div class="page-header">
-        <h3>Add Status</h3>
+        <h3>Post a New Status</h3>
       </div>
 
       <div class="row">
@@ -27,11 +34,11 @@
 
             <!-- Label and input for status -->
             <div class="form-group">
-              <label for="status" class="control-label">
+              <label for="emoji-input" class="control-label">
                 Status
               </label>
 
-              <input type="text" id="status" name="status" placeholder="Status" class="form-control" value="<%= @status.status %>">
+              <input type="text" id="emoji-input" name="status" placeholder="Status" class="form-control emoji-input" value="<%= @status.status %>">
             </div>
 
             <!-- Hidden input for user_id -->
@@ -40,12 +47,12 @@
             </div>
 
             <button class="btn btn-success">
-              Create Status
+              Post Status
             </button>
             or
             <a href="/statuses">Cancel</a>
           </form>
         </div>
       </div>
-    </div> 
+    </div>
 </div>

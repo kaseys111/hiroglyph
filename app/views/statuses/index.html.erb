@@ -1,5 +1,5 @@
 <div class="container">
-
+  
   <!-- Add status -->
   <div class="row">
     <div class="col-md-offset-1 col-md-10  margin-above-top-md padding-inside-top-xs content">
@@ -29,29 +29,63 @@
       <table class="col-md-offset-1 col-md-10">
         <tr>
 
-          <td class="col-md-offset-1 col-md-1 status-user">
+          <td class="col-md-offset-1 col-md-1 status-user"  rowspan="<%= status.comments.count*2 + 2 %>">
             <div class="status-pic-box pic-box">
               <a href="/users/<%= status.user_id %>"><img class="profilepic" src="<%= status.user.profile_pic %>" /></a>
             </div>
           </td>
 
           <% if status.user_id == current_user.id %>
-          <td class="col-md-8 status">
+          <td class="col-md-8 status" colspan="2">
           <% else %>
-          <td class="col-md-9 status">
+          <td class="col-md-9 status" colspan="3">
           <% end %>
-            <a href="/users/<%= status.user_id %>"><h4><%= status.user.first_name + " " + status.user.last_name %></h4></a>
-            <h5><%= status.status %></h5>
-            <h6><%= time_ago_in_words(status.created_at.in_time_zone("Central Time (US & Canada)")) %> ago</h6>
+            <a href="/users/<%= status.user_id %>"><h4 class="feed"><%= status.user.first_name + " " + status.user.last_name %></h4></a>
+            <h4><%= status.status %></h4>
           </td>
 
           <%if status.user_id == current_user.id %>
             <td class="col-md-1 status-controls">
-              <h6><a href="/statuses/<%= status.id %>/edit">Edit</a></h6>
-              <h6><a href="/delete_status/<%= status.id %>">Delete</a></h6>
+              <a class="btn btn-default" href="/statuses/<%= status.id %>/edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+              <a class="btn btn-default" href="/delete_status/<%= status.id %>"><i class="fa fa-trash" aria-hidden="true"></i></a>
             </td>
           <% end %>
         </tr>
+
+        <tr>
+          <td class="col-md-1 react">
+            <a class="btn btn-default react-btn" href="/<%= status.id %>/comments/new"><h5><span class="fa-stack"><i class="fa fa-comment-o fa-stack-2x" aria-hidden="true"></i><i class="fa fa-smile-o fa-stack-1x" aria-hidden="true"></i></span><i class="fa fa-plus" aria-hidden="true"></i></h5></a>
+          </td>
+          <td class="time" colspan="2">
+            <h6><%= time_ago_in_words(status.created_at.in_time_zone("Central Time (US & Canada)")) %> ago</h6>
+          </td>
+        </tr>
+
+        <% status.comments.each do |comment| %>
+        <tr>
+          <td class="col-md-1 comment-user" rowspan="2">
+            <div class="commenter-pic commenter-pic-box">
+              <a href="/users/<%= comment.user_id %>"><img class="profilepic" src="<%= comment.user.profile_pic %>" /></a>
+            </div>
+          </td>
+          <td class="col-md-8 comment" rowspan="2">
+            <a href="/users/<%= comment.user.id %>"><h5><b><%= comment.user.first_name + " " + comment.user.last_name %></b></h5></a>
+            <h5><%= comment.body %></h5>
+          </td>
+            <td class="col-md-3 status-controls" colspan="1">
+            <%if comment.user_id == current_user.id %>
+              <a class="btn btn-default" href="/comments/<%= comment.id %>/edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+              <a class="btn btn-default" href="/delete_comment/<%= comment.id %>"><i class="fa fa-trash" aria-hidden="true"></i></a>
+            <% end %>
+            </td>
+        </tr>
+
+        <tr>
+          <td class="col-md-3 time">
+            <h6><%= time_ago_in_words(comment.created_at.in_time_zone("Central Time (US & Canada)")) %> ago</h6>
+          </td>
+        </tr>
+        <% end %>
       </table>
     </div>
   <% end %>

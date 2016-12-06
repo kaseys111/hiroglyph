@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row padding-inside-top-md">
+    <div class="col-md-12">
+
+      <form action="/users">
+
+        <div class="form-group search">
+
+          <label for="search"><i class="fa fa-search fa-lg" aria-hidden="true"></i></label>
+
+          <input class="form-control" type="text" id="search" name="search" value="<%= @search.join(" ")%>" placeholder="Search">
+
+        </div>
+      </form>
+      <hr>
+    </div>
+  </div>
+
+  <% @users.each do |user| %>
+  <div class="row padding-inside-top-sm">
+    <table class="col-md-offset-1 col-md-10 users-search content">
+      <tr>
+        <td class="col-md-2 user-pic" rowspan="2">
+          <div class="profile-pic-box pic-box">
+            <a href="/users/<%= user.id %>"><img class="profilepic" src="<%= user.profile_pic %>" /></a>
+          </div>
+        </td>
+
+        <td class="friend-request-box">
+          <% if (current_user.friends_where_sender.include? user) != true %>
+          <% if user != current_user %>
+            <form action="/create_friend_request" method="post">
+              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+              <input type="hidden" name="sender_id" value="<%= current_user.id %>">
+
+              <input type="hidden" name="receiver_id" value="<%= user.id %>">
+
+              <button class="btn-link"><i class="fa fa-user-plus" aria-hidden="true"></i></button>
+            </form>
+          <% end %>
+
+          <% else %>
+            <a href="/delete_friend_request/<%= FriendRequest.find_by({ :sender_id => current_user.id, :receiver_id => user.id}).id %>"><i class="fa fa-user-times" aria-hidden="true"></i></a>
+          <% end %>
+        </td>
+
+        <td class="col-md-9 name-box" colspan="2">
+          <h3><a href="/users/<%= user.id %>"><%= user.first_name + " " + user.last_name %></a></h3>
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td class="col-md-2 follower-box">
+          <h4>Followers <%= user.friends_where_receiver.count %></h4>
+        </td>
+        <td class="following-box">
+          <h4>Following <%= user.friends_where_sender.count %></h4>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+  <% end %>
+</div>

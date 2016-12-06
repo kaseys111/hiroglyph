@@ -82,7 +82,7 @@
 /* Body */
 
 body {
-  background: #f8f5f0;
+  background: #252525;
 }
 
 .page-content-wrapper .container {
@@ -94,7 +94,15 @@ body {
 }
 
 
-/* Navbar */
+/* Navbar*/
+
+.navbar {
+  background: #b2b2b2;
+}
+
+.navbar-nav {
+  background: #b2b2b2;
+}
 
 .navbar-nav i, span {
   line-height: 40px;
@@ -116,23 +124,55 @@ body {
   font-family: Megrim;
   font-weight: bolder;
   font-size: 30px;
+  color: #252525;
 }
 
 .navbar-brand img {
   height: 40px;
+  color: #252525;
 }
 
 .navbar, body {
   font-family: Roboto;
 }
 
+.navbar-right .fa-pencil-square-o, .navbar-right .fa-sign-out {
+  line-height: 48px;
+}
 
-/* Sidebar */
+.navbar-right a {
+  padding-bottom: 0px !important;
+}
+
+.navbar-left {
+  line-height: 44px;
+  padding-right: 0px;
+  margin-left: 20px;
+}
+
+.navbar-form .form-group {
+  height: 20px;
+}
+
+.navbar-form input {
+  height: 20px;
+  display: inline-block;
+  }
+
+.navbar-form label {
+  color: #98978b;
+  font-size: 11px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+
+/* Profile page sidebar */
 .sidebar-wrapper {
   margin-left: -250px;
   left: 250px;
   width: 250px;
-  background: #f8f5f0;
+  background: #252525;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -162,22 +202,108 @@ body {
   -webkit-transform: translate(-50%,-50%);
 }
 
+.profile-info {
+  border: none;
+}
+
+.follow-box {
+  text-align: right;
+}
+
+.follow {
+  color: #93c54b;
+  background: none;
+  font-size: 20px;
+}
+
+.follow:hover {
+  color: #93c54b;
+  background: none;
+}
+
 .friends {
   height: 50px;
   border-radius: 50px;
 }
 
 
-/* Page content */
+/* Profile page content */
 .page-content-wrapper {
   width: 100%;
 }
 
+.new-status {
+  color: #93c54b;
+  display: block;
+  text-align: center;
+  background: none;
+}
+
+.new-status:hover {
+  background: none;
+  color: #93c54b;
+}
+
+.fa-commenting {
+  font-size: 50px;
+}
+
+.fa-star {
+  font-size: 15px;
+}
+
+.fa-plus {
+  font-size: 10px;
+  vertical-align: bottom;
+}
+
 .content {
-  background-color: white;
+  background-color: #3f3f3f;
   border-bottom: solid 1.5px #DCDDD7;
   border-right: solid 1.5px #DCDDD7;
   border-radius: 5px;
+}
+
+.profile-status-controls {
+  text-align: right;
+  vertical-align: top;
+}
+
+.profile-status-controls .btn {
+  padding: 0px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.profile-status-controls .trash {
+  margin-right: 10px;
+}
+
+.profile-status-controls h6 {
+  font-size: 11px;
+  text-align: right;
+  color: #98978b;
+}
+
+.status h3 {
+  margin-bottom: 0px;
+  color: white;
+}
+
+.status .profile {
+  margin-bottom: 0px;
+  margin-top: 20px;
+  color: white;
+}
+
+.comment {
+  color: white;
+}
+
+
+/* Add status / comment sidebar */
+.keyboard {
+  padding: 0px;
 }
 
 
@@ -200,11 +326,6 @@ hr {
   width: 100%;
 }
 
-/*.status-user img {
-  height: 60px;
-  border-radius: 50px;
-}*/
-
 .status-pic-box {
   width: 60px;
   height: 60px;
@@ -212,26 +333,142 @@ hr {
   margin: auto;
 }
 
-.status h4 {
+.status .feed {
   font-size: 15px;
   font-weight: bold;
 }
 
-.status h6 {
+table {
+  border-bottom: solid 1.5px #DCDDD7;
+  border-right: solid 1.5px #DCDDD7;
+  border-radius: 10px;
+  /*overflow-x: hidden; (makes border disappear...)*/
+}
+
+.status-user, .status, .status-controls, .time, .react, .comment, .comment-user {
+  background: #3f3f3f;
+  /*border: red solid 1px;*/
+}
+
+.status-user {
+  vertical-align: top;
+  padding-top: 15px;
+}
+
+.status h4 {
+  margin-bottom: 0px;
+}
+
+.status-controls {
+  text-align: right;
+  vertical-align: top;
+}
+
+.status-controls .btn {
+  padding: 0px;
+  margin-top: 10px;
+  color: #93c54b;
+  font-size: 15px;
+  background: none;
+}
+
+.time {
+  padding-right: 10px;
+
+}
+
+.time h6 {
   font-size: 11px;
   text-align: right;
   color: #98978b;
+  margin-top: 0px;
 }
 
-.status-table {
-  display: table;
+.react-btn {
+  padding: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 30px;
+  background: none;
 }
 
-.status-user, .status, .status-controls {
-  background: white;
-  display: table-cell;
+.react-btn:hover {
+  background: none;
 }
 
+.react-btn h5 {
+  margin-top: 0px;
+  color: #93c54b;
+}
+
+.comment {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 0px;
+}
+
+.commenter-pic {
+  width: 50px;
+  height: 50px;
+}
+
+.commenter-pic-box {
+  border-radius: 150px;
+  object-fit: cover;
+  overflow: hidden;
+  position: relative;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+
+/* Search */
+.search {
+  padding-left: 50px;
+}
+
+.search label {
+  /*text-indent: 50px;*/
+  display: inline-block;
+  width: 3%;
+}
+
+.search input {
+  display: inline-block;
+  width: 85%;
+}
+
+.users-search .user-pic {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+}
+
+.users-search h3 {
+  margin-bottom: 0px !important;
+}
+
+.friend-request-box {
+  padding-top: 17px;
+  font-size: 25px;
+  width: 5%;
+}
+
+.follower-box {
+  vertical-align: text-top;
+  text-align: left;
+  width: 13%;
+}
+
+.following-box {
+  vertical-align: text-top;
+}
+
+
+/* Add/edit comment */
+.time-add-comment {
+  padding-left: 10px;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

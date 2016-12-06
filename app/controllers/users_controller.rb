@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @search = params[:search].split(" ")
+    @users = Array.new
+    @search.each do |search|
+      @user = User.where("first_name LIKE ? OR last_name LIKE ?", "%#{search}%", "%#{search}%")
+      @users = @users + @user
+    end
+
   end
 
   def show

@@ -1,6 +1,6 @@
 class StatusesController < ApplicationController
   def index
-    @statuses = Status.all.order(created_at: :desc)
+    @statuses = (current_user.timeline_statuses + current_user.statuses).sort_by { |h| h[:created_at]}.reverse
 
     render("statuses/index.html.erb")
   end
