@@ -157,14 +157,19 @@
 
             <tr>
               <td class="col-md-1 react">
-                <a class="btn btn-default react-btn" href="/<%= @current.id %>/comments/new"><h5><span class="fa-stack"><i class="fa fa-comment-o fa-stack-2x" aria-hidden="true"></i><i class="fa fa-smile-o fa-stack-1x" aria-hidden="true"></i></span><i class="fa fa-plus" aria-hidden="true"></i></h5></a>
+                <% if @statuses.any? == false %>
+                  <a class="btn btn-default react-btn" href="/<%= @current.id %>/comments/new"><h5><span class="fa-stack"><i class="fa fa-comment-o fa-stack-2x" aria-hidden="true"></i><i class="fa fa-smile-o fa-stack-1x" aria-hidden="true"></i></span><i class="fa fa-plus" aria-hidden="true"></i></h5></a>
+                <% end %>
               </td>
 
               <td class="time" colspan="2">
-                <h6><%= time_ago_in_words(@current.created_at.in_time_zone("Central Time (US & Canada)")) %> ago</h6>
+                <% if @statuses.any? == false %>
+                  <h6><%= time_ago_in_words(@current.created_at.in_time_zone("Central Time (US & Canada)")) %> ago</h6>
+                <% end %>
               </td>
             </tr>
 
+            <% if @statuses.any? == false %>
             <% @current.comments.each do |comment| %>
             <tr>
 
@@ -192,6 +197,7 @@
                 <h6><%= time_ago_in_words(comment.created_at.in_time_zone("Central Time (US & Canada)")) %> ago</h6>
               </td>
             </tr>
+            <% end %>
             <% end %>
           </table>
         </div>
