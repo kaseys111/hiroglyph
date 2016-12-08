@@ -29,7 +29,7 @@
 
                     <input type="hidden" name="sender_id" value="<%= current_user.id %>">
 
-                    <input type="hidden" name="receiver_id" value="<%= user.id %>">
+                    <input type="hidden" name="receiver_id" value="<%= @user.id %>">
 
                     <button class="btn-link"><i class="fa fa-user-plus" aria-hidden="true"></i></button>
                   </form>
@@ -115,12 +115,19 @@
     <!-- Page content -->
     <div class="page-content-wrapper">
       <div class="container">
+
+        <% if @user == current_user %>
         <div class="row padding-inside-top-md padding-inside-bottom-sm">
 
           <div class="col-md-11 new-status-col">
             <a class="btn btn-primary new-status" href="/statuses/new"><i class="fa fa-commenting" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i></a>
           </div>
         </div>
+
+        <% else %>
+        <div class="row padding-inside-top-md">
+        </div>
+        <% end %>
 
 
         <!-- Most current status -->
@@ -130,13 +137,13 @@
               <td class="col-md-10 status" colspan="2">
                 <% if @user.id == current_user.id %>
                   <% if @statuses.any? == false %>
-                    <h3>You have no statuses!</h3>
+                    <h3 class="no-statuses">You have no statuses!</h3>
                   <% else %>
                     <h3><%= @current.status %></h3>
                   <% end %>
                 <% else %>
                   <% if @statuses.any? == false %>
-                    <h3><%= @user.first_name %> has no statuses!</h3>
+                    <h3 class="no-statuses"><%= @user.first_name %> has no statuses!</h3>
                   <% else %>
                     <h3><%= @current.status %></h3>
                   <% end %>
@@ -157,19 +164,19 @@
 
             <tr>
               <td class="col-md-1 react">
-                <% if @statuses.any? == false %>
+                <% if @statuses.any? != false %>
                   <a class="btn btn-default react-btn" href="/<%= @current.id %>/comments/new"><h5><span class="fa-stack"><i class="fa fa-comment-o fa-stack-2x" aria-hidden="true"></i><i class="fa fa-smile-o fa-stack-1x" aria-hidden="true"></i></span><i class="fa fa-plus" aria-hidden="true"></i></h5></a>
                 <% end %>
               </td>
 
               <td class="time" colspan="2">
-                <% if @statuses.any? == false %>
+                <% if @statuses.any? != false %>
                   <h6><%= time_ago_in_words(@current.created_at.in_time_zone("Central Time (US & Canada)")) %> ago</h6>
                 <% end %>
               </td>
             </tr>
 
-            <% if @statuses.any? == false %>
+            <% if @statuses.any? != false %>
             <% @current.comments.each do |comment| %>
             <tr>
 

@@ -22,7 +22,11 @@
       <tr>
         <td class="col-md-2 user-pic" rowspan="2">
           <div class="profile-pic-box pic-box">
-            <a href="/users/<%= user.id %>"><img class="profilepic" src="<%= user.profile_pic %>" /></a>
+            <% if user.profile_pic.file == nil %>
+              <a href="/users/<%= user.id %>"><img class="profilepic" src="/images/empty_profile_pic.png" /></a>
+            <% else %>
+              <a href="/users/<%= user.id %>"><img class="profilepic" src="<%= user.profile_pic %>" /></a>
+            <% end %>
           </div>
         </td>
 

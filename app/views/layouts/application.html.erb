@@ -57,7 +57,7 @@
             <% if current_user.profile_pic.file != nil %>
               <img class="profilepic" src="<%= current_user.profile_pic %>" />
             <% else %>
-              <img src="/images/empty_profile_pic.png" />
+              <img class="profilepic" src="/images/empty_profile_pic.png" />
             <% end %>
             </a></li>
           <% end %>

@@ -379,6 +379,10 @@ hr {
   color: white;
 }
 
+.status .no-statuses {
+  margin-bottom: 20px;
+}
+
 .status-controls {
   text-align: right;
   vertical-align: top;
@@ -390,6 +394,14 @@ hr {
   color: #93c54b;
   font-size: 15px;
   background: none;
+}
+
+.status-controls .fa-commenting {
+  font-size: 40px;
+}
+
+.status-controls .fa-star {
+  font-size: 12px;
 }
 
 .time {
