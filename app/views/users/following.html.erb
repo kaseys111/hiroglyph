@@ -1,22 +1,16 @@
 <div class="container">
   <div class="row padding-inside-top-md">
-    <div class="col-md-12">
-
-      <form action="/users">
-
-        <div class="form-group search">
-
-          <label for="search"><i class="fa fa-search fa-lg" aria-hidden="true"></i></label>
-
-          <input class="form-control" type="text" id="search" name="search" value="<%= @search.join(" ")%>" placeholder="Search">
-
-        </div>
-      </form>
+    <div class="col-md-12 follow-heading">
+      <% if @user == current_user %>
+      <h2>People You are Following</h2>
+      <% else %>
+      <h2>People <%= @user.first_name %> is Following</h2>
+      <% end %>
       <hr>
     </div>
   </div>
 
-  <% @users.each do |user| %>
+  <% @user.friends_where_sender.each do |user| %>
   <div class="row padding-inside-top-sm">
     <table class="col-md-offset-1 col-md-10 users-search content">
       <tr>
@@ -56,7 +50,7 @@
           <h4>Followers <a class="btn-link" href="/users/<%= user.id %>/followers"><%= user.friends_where_receiver.count %></a></h4>
         </td>
         <td class="following-box">
-          <h4>Following <a class="btn-link" href="/users/<%= user.id %>/followers"><%= user.friends_where_sender.count %></a></h4>
+          <h4>Following <a class="btn-link" href="/users/<%= user.id %>/following"><%= user.friends_where_sender.count %></a></h4>
         </td>
       </tr>
     </table>

@@ -22,8 +22,8 @@
         <% end %>
       <% end %>
 
-      <div class="row padding-inside-top-md">
-        <table class="col-md-11">
+      <div class="row padding-inside-top-sm status-scroll">
+        <table class="col-md-11 status-feed">
           <tr>
 
             <td class="col-md-offset-1 col-md-1 status-user" rowspan="<%= @status.comments.count*2 + 2 %>">
@@ -70,19 +70,17 @@
         </table>
       </div>
 
-      <div class="row padding-inside-top-md">
+      <!-- Comment form -->
+      <div class="row padding-inside-top-sm">
         <div class="col-md-11">
-          <form action="/create_comment" method="post">
+          <form class="form-inline" action="/create_comment" method="post">
             <!-- Hidden input for authenticity token to protect from forgery -->
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
             <!-- Label and input for status -->
-            <div class="form-group">
-              <label for="emoji-input" class="control-label">
-                Comment
-              </label>
+            <div class="form-group comment-form col-md-11">
 
-              <input type="text" id="emoji-input" name="body" placeholder="Add a comment..." class="form-control" value="<%= @comment.body %>">
+              <input type="text" id="emoji-input" name="body" placeholder="Add a comment..." class="form-control input-lg" value="<%= @comment.body %>">
             </div>
 
             <!-- Hidden input for user_id -->
@@ -95,13 +93,20 @@
               <input type="hidden" id="status_id" name="status_id" class="form-control" value="<%= @status.id %>">
             </div>
 
-            <button class="btn btn-success">
-              Post Comment
+            <button class="btn btn-success btn-comment-post">
+              Post
             </button>
-            or
-            <button class="btn-link" onclick="history.back(-1)">Cancel</button>
+
           </form>
         </div>
       </div>
     </div>
 </div>
+
+<script>
+  var emojiInput = document.getElementById("emoji-input");
+  emojiInput.onkeypress = function(e) {
+    e.preventDefault();
+    return false;
+  };
+</script>

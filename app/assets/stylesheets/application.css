@@ -97,15 +97,12 @@ body {
 /* Navbar*/
 
 .navbar {
-  background: #b2b2b2;
+  background: #252525;
 }
 
-.navbar-nav {
-  background: #b2b2b2;
-}
-
-.navbar-nav i, span {
+.navbar-nav i {
   line-height: 40px;
+  color: #d8d8d8;
 }
 
 .nav-pic-box {
@@ -124,7 +121,6 @@ body {
   font-family: Megrim;
   font-weight: bolder;
   font-size: 30px;
-  color: #252525;
 }
 
 .navbar-brand img {
@@ -157,13 +153,18 @@ body {
 .navbar-form input {
   height: 20px;
   display: inline-block;
+  background: #d8d8d8;
   }
 
 .navbar-form label {
-  color: #98978b;
+  color: #d8d8d8;
   font-size: 11px;
   display: inline-block;
   margin-right: 10px;
+}
+
+.navbar-form ::-webkit-input-placeholder {
+  color: #8b8b8b;
 }
 
 
@@ -187,7 +188,7 @@ body {
 .pic-box {
   border-radius: 150px;
   object-fit: cover;
-  overflow: hidden;
+  overflow: hidden !important;
   position: relative;
   margin-left: 50px;
   margin-right: 0px;
@@ -204,10 +205,13 @@ body {
 
 .profile-info {
   border: none;
+  color: #d8d8d8;
 }
 
 .follow-box {
   text-align: right;
+  font-size: 25px;
+  vertical-align: top;
 }
 
 .follow {
@@ -221,20 +225,37 @@ body {
   background: none;
 }
 
+.friends-box i {
+  font-size: 25px;
+  color: #d8d8d8;
+}
+
 .friends {
   height: 50px;
   border-radius: 50px;
 }
 
+.friend-count td {
+  text-align: center;
+}
+
+.friend-count h3 {
+  margin-top: 5px;
+  font-weight: bolder;
+}
 
 /* Profile page content */
 .page-content-wrapper {
   width: 100%;
 }
 
+.new-status-col {
+  text-align: center;
+}
+
 .new-status {
   color: #93c54b;
-  display: block;
+  display: inline-block;
   text-align: center;
   background: none;
 }
@@ -242,6 +263,7 @@ body {
 .new-status:hover {
   background: none;
   color: #93c54b;
+  text-shadow: 4px 4px 4px #0c0c0c;
 }
 
 .fa-commenting {
@@ -258,10 +280,10 @@ body {
 }
 
 .content {
-  background-color: #3f3f3f;
-  border-bottom: solid 1.5px #DCDDD7;
+  background-color: #323232;
+  /*border-bottom: solid 1.5px #DCDDD7;
   border-right: solid 1.5px #DCDDD7;
-  border-radius: 5px;
+  border-radius: 5px;*/
 }
 
 .profile-status-controls {
@@ -301,7 +323,7 @@ body {
 }
 
 
-/* Add status / comment sidebar */
+/* Add status/comment sidebar */
 .keyboard {
   padding: 0px;
 }
@@ -317,7 +339,7 @@ body {
 }
 
 hr {
-  border-color: #98978b;
+  border-color: #3f3f3f;
   margin: 0px;
 }
 
@@ -338,16 +360,12 @@ hr {
   font-weight: bold;
 }
 
-table {
-  border-bottom: solid 1.5px #DCDDD7;
-  border-right: solid 1.5px #DCDDD7;
-  border-radius: 10px;
-  /*overflow-x: hidden; (makes border disappear...)*/
-}
-
-.status-user, .status, .status-controls, .time, .react, .comment, .comment-user {
-  background: #3f3f3f;
-  /*border: red solid 1px;*/
+.status-feed {
+  overflow-x: hidden;
+  border-radius: 5px;
+  background: #323232;
+  /*box-shadow: 2px 2px 4px 0px #060606;*/
+  border-collapse: separate;
 }
 
 .status-user {
@@ -357,6 +375,8 @@ table {
 
 .status h4 {
   margin-bottom: 0px;
+  font-size: 30px;
+  color: white;
 }
 
 .status-controls {
@@ -415,7 +435,7 @@ table {
 .commenter-pic-box {
   border-radius: 150px;
   object-fit: cover;
-  overflow: hidden;
+  overflow: hidden !important;
   position: relative;
   margin-left: 0px;
   margin-right: 0px;
@@ -458,10 +478,16 @@ table {
   vertical-align: text-top;
   text-align: left;
   width: 13%;
+  color: #d8d8d8;
 }
 
 .following-box {
   vertical-align: text-top;
+  color: #d8d8d8;
+}
+
+.follow-heading {
+  color: #d8d8d8;
 }
 
 
@@ -469,6 +495,69 @@ table {
 .time-add-comment {
   padding-left: 10px;
 }
+
+.status-scroll{
+  overflow-y: scroll;
+  height: 350px;
+}
+
+.comment-form input {
+  background: #252525;
+  border: none;
+  width: 100% !important;
+  font-size: 30px;
+}
+
+.comment-form ::-webkit-input-placeholder {
+  color: #525252;
+}
+
+.btn-comment-post {
+  padding: 5px;
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+.btn-comment-edit {
+  padding: 5px;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.status-heading h3 {
+  color: #d8d8d8;
+}
+
+
+
+/* Devise forms */
+.edit-profile .control-label {
+  color: #d8d8d8;
+}
+
+.edit-profile h2 {
+  color: #d8d8d8;
+}
+
+.edit-profile .form-control {
+  background: #3f3f3f;
+  border: none;
+  color: white;
+}
+
+.edit-profile .btn-danger {
+  background-color: #3f3f3f;
+}
+
+.edit-profile .edit-text, .edit-profile h3 {
+  color: #d8d8d8;
+}
+
+.edit-profile i, .edit-profile em {
+  color: #525252;
+}
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

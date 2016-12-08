@@ -17,4 +17,12 @@ class UsersController < ApplicationController
     render("/users/show.html.erb")
   end
 
+  def followers
+    @user = User.find(params[:id])
+  end
+
+  def following
+    @user = User.find(params[:id])
+  end
+
 end

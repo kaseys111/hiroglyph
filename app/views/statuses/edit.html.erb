@@ -22,23 +22,23 @@
         <% end %>
       <% end %>
 
-      <div class="page-header">
-        <h3>Edit Status</h3>
+      <div class="row padding-inside-top-sm status-heading">
+        <div class="col-md-12">
+          <h3>Edit Status</h3>
+          <hr>
+        </div>
       </div>
 
-      <div class="row">
+      <div class="row padding-inside-top-sm">
         <div class="col-md-12">
-          <form action="/update_status/<%= @status.id %>" method="post">
+          <form class="form-inline" action="/update_status/<%= @status.id %>" method="post">
             <!-- Hidden input for authenticity token to protect from forgery -->
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
             <!-- Label and input for status -->
-            <div class="form-group">
-              <label for="emoji-input" class="control-label">
-                Status
-              </label>
+            <div class="form-group comment-form col-md-11">
 
-              <input type="text" id="emoji-input" name="status" placeholder="Status" class="form-control" value="<%= @status.status %>">
+              <input type="text" id="emoji-input" name="status" placeholder="Status" class="form-control input-lg" value="<%= @status.status %>">
             </div>
 
             <!-- Hidden input for user_id -->
@@ -46,14 +46,20 @@
               <input type="hidden" id="user_id" name="user_id" class="form-control" value="<%= current_user.id %>">
             </div>
 
-            <button class="btn btn-warning">
-              Update Status
+            <button class="btn btn-success btn-comment-edit">
+              Update
             </button>
-            or
-            <a href="/users/<%= @status.user_id %>">Cancel</a>
           </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  var emojiInput = document.getElementById("emoji-input");
+  emojiInput.onkeypress = function(e) {
+    e.preventDefault();
+    return false;
+  };
+</script>

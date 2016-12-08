@@ -17,7 +17,7 @@
   right: 0;
   height: 42px;
   padding: 0 10px;
-  background-color: #F5F7F9;
+  background-color: #252525;
 }
 
 .emoji-dialog .emoji-dialog-header ul {
@@ -31,7 +31,7 @@
   box-sizing: border-box;
   width: 30px;
   height: 42px;
-  padding: 9px 0px;
+  padding: 9px 4.5px;
 }
 
 .emoji-dialog .emoji-dialog-header img {
@@ -42,7 +42,7 @@
 }
 
 .emoji-dialog .emoji-dialog-header li.active {
-  background: #fff;
+  background: #252525;
 }
 
 .emoji-dialog .emoji-dialog-header li.active img {
@@ -75,7 +75,7 @@
   box-sizing: border-box;
   width: 32px;
   height: 32px;
-  padding: 4px;
+  padding: 0px;
   border-radius: 4px;
 }
 
@@ -85,7 +85,7 @@
   font-size: 18px;
   font-family: sans-serif;
   font-weight: normal;
-  color: #444;
+  color: white;
   padding: 0 4px;
 }
 
@@ -150,7 +150,7 @@
 }
 
 .emoji-dialog .emoji-category-list li:hover {
-  background: #F5F7F9;
+  background: #252525;
 }
 
 .emoji-dialog .emoji-category-list .emoji img {

@@ -1,22 +1,10 @@
 <div class="container">
-  
+
   <!-- Add status -->
-  <div class="row">
-    <div class="col-md-offset-1 col-md-10  margin-above-top-md padding-inside-top-xs content">
+  <div class="row padding-inside-top-sm">
 
-      <form action="/create_status" method="post">
-
-        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-        <div class="form-group">
-          <label for="status">Post a new status</label>
-          <hr>
-          <input class="form-control" id="status" type="text" name="status" placeholder="How are you feeling today?">
-          <hr>
-        </div>
-
-        <input type="hidden" name="user_id" value="<%= current_user.id %>">
-      </form>
+    <div class="col-md-offset-1 col-md-10 new-status-col">
+      <a class="btn btn-primary new-status" href="/statuses/new"><i class="fa fa-commenting" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i></a>
     </div>
   </div>
 
@@ -26,7 +14,7 @@
 
   <% @statuses.each do |status| %>
     <div class="row padding-inside-top-xs padding-inside-bottom-xs margin-above-top-xs">
-      <table class="col-md-offset-1 col-md-10">
+      <table class="col-md-offset-1 col-md-10 status-feed">
         <tr>
 
           <td class="col-md-offset-1 col-md-1 status-user"  rowspan="<%= status.comments.count*2 + 2 %>">

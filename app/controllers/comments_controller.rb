@@ -36,6 +36,7 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
+    @status = Status.find(@comment.status_id)
 
     render("comments/edit.html.erb")
   end
