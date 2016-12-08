@@ -373,6 +373,10 @@ hr {
   padding-top: 15px;
 }
 
+.status .yes-statuses {
+  font-size: 45px;
+}
+
 .status h4 {
   margin-bottom: 0px;
   font-size: 30px;

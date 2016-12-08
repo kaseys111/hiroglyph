@@ -29,7 +29,7 @@
           <td class="col-md-9 status" colspan="3">
           <% end %>
             <a href="/users/<%= status.user_id %>"><h4 class="feed"><%= status.user.first_name + " " + status.user.last_name %></h4></a>
-            <h4><%= status.status %></h4>
+            <h4><%= status.status.html_safe %></h4>
           </td>
 
           <%if status.user_id == current_user.id %>
@@ -58,7 +58,7 @@
           </td>
           <td class="col-md-8 comment" rowspan="2">
             <a href="/users/<%= comment.user.id %>"><h5><b><%= comment.user.first_name + " " + comment.user.last_name %></b></h5></a>
-            <h5><%= comment.body %></h5>
+            <h5><%= comment.body.html_safe %></h5>
           </td>
             <td class="col-md-3 status-controls" colspan="1">
             <%if comment.user_id == current_user.id %>

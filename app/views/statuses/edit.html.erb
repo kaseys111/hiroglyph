@@ -46,7 +46,7 @@
               <input type="hidden" id="user_id" name="user_id" class="form-control" value="<%= current_user.id %>">
             </div>
 
-            <button class="btn btn-success btn-comment-edit">
+            <button class="btn btn-success btn-comment-edit" onclick="convert()">
               Update
             </button>
           </form>
@@ -63,3 +63,11 @@
     return false;
   };
 </script>
+
+<!-- <script>
+  function convert() {
+    var nativeStatus = document.getElementById("emoji-input").value;
+    var emojioneStatus = emojione.unicodeToImage(nativeStatus);
+    document.getElementById("emoji-input").value = emojioneStatus;
+  }
+</script> -->

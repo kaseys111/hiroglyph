@@ -139,13 +139,13 @@
                   <% if @statuses.any? == false %>
                     <h3 class="no-statuses">You have no statuses!</h3>
                   <% else %>
-                    <h3><%= @current.status %></h3>
+                    <h3 class="yes-statuses"><%= @current.status.html_safe %></h3>
                   <% end %>
                 <% else %>
                   <% if @statuses.any? == false %>
                     <h3 class="no-statuses"><%= @user.first_name %> has no statuses!</h3>
                   <% else %>
-                    <h3><%= @current.status %></h3>
+                    <h3 class="yes-statuses"><%= @current.status.html_safe %></h3>
                   <% end %>
                 <% end %>
               </td>
@@ -188,7 +188,7 @@
 
               <td class="col-md-9 comment" rowspan="2">
                 <a href="/users/<%= comment.user.id %>"><h5><b><%= comment.user.first_name + " " + comment.user.last_name %></b></h5></a>
-                <h5><%= comment.body %></h5>
+                <h5><%= comment.body.html_safe %></h5>
               </td>
 
               <td class="col-md-3 status-controls" colspan="1">
@@ -218,7 +218,7 @@
                 <tr>
 
                   <td class="col-md-10 status" colspan="2">
-                    <h4 class="profile"><%= status.status %></h4>
+                    <h4 class="profile"><%= status.status.html_safe %></h4>
                   </td>
 
                   <td class="col-md-2 status-controls">
@@ -250,7 +250,7 @@
 
                   <td class="col-md-9 comment" rowspan="2">
                     <a href="/users/<%= comment.user.id %>"><h5><b><%= comment.user.first_name + " " + comment.user.last_name %></b></h5></a>
-                    <h5><%= comment.body %></h5>
+                    <h5><%= comment.body.html_safe %></h5>
                   </td>
 
                   <td class="col-md-3 status-controls" colspan="1">
