@@ -19,7 +19,11 @@
 
           <td class="col-md-offset-1 col-md-1 status-user"  rowspan="<%= status.comments.count*2 + 2 %>">
             <div class="status-pic-box pic-box">
-              <a href="/users/<%= status.user_id %>"><img class="profilepic" src="<%= status.user.profile_pic %>" /></a>
+              <% if status.user.profile_pic.file != nil %>
+                <a href="/users/<%= status.user_id %>"><img class="profilepic" src="<%= status.user.profile_pic %>" /></a>
+              <% else %>
+                <a href="/users/<%= status.user_id %>"><img class="profilepic" src="/images/empty_profile_pic.png" /></a>
+              <% end %>
             </div>
           </td>
 
@@ -53,12 +57,16 @@
         <tr>
           <td class="col-md-1 comment-user" rowspan="2">
             <div class="commenter-pic commenter-pic-box">
-              <a href="/users/<%= comment.user_id %>"><img class="profilepic" src="<%= comment.user.profile_pic %>" /></a>
+              <% if comment.user.profile_pic.file != nil %>
+                <a href="/users/<%= comment.user_id %>"><img class="profilepic" src="<%= comment.user.profile_pic %>" /></a>
+              <% else %>
+                <a href="/users/<%= comment.user_id %>"><img class="profilepic" src="/images/empty_profile_pic.png" /></a>
+              <% end %>
             </div>
           </td>
           <td class="col-md-8 comment" rowspan="2">
             <a href="/users/<%= comment.user.id %>"><h5><b><%= comment.user.first_name + " " + comment.user.last_name %></b></h5></a>
-            <h5><%= comment.body.html_safe %></h5>
+            <h5 class="feed-comment"><%= comment.body.html_safe %></h5>
           </td>
             <td class="col-md-3 status-controls" colspan="1">
             <%if comment.user_id == current_user.id %>

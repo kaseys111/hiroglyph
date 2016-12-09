@@ -457,6 +457,14 @@ hr {
   margin-right: 0px;
 }
 
+.feed-comment {
+  font-size: 25px;
+}
+
+.status h3 {
+  font-size: 40px;
+}
+
 
 /* Search */
 .search {
@@ -521,7 +529,7 @@ hr {
   background: #252525;
   border: none;
   width: 100% !important;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .comment-form ::-webkit-input-placeholder {
