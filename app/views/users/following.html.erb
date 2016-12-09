@@ -15,11 +15,12 @@
     <table class="col-md-offset-1 col-md-10 users-search content">
       <tr>
         <td class="col-md-2 user-pic" rowspan="2">
-          <% if user.profile_pic.file == nil %>
-            <a href="/users/<%= user.id %>"><img class="profilepic" src="/images/empty_profile_pic.png" /></a>
-          <% else %>
-            <a href="/users/<%= user.id %>"><img class="profilepic" src="<%= user.profile_pic %>" /></a>
-          <% end %>
+          <div class="profile-pic-box pic-box">
+            <% if user.profile_pic.file == nil %>
+              <a href="/users/<%= user.id %>"><img class="profilepic" src="/images/empty_profile_pic.png" /></a>
+            <% else %>
+              <a href="/users/<%= user.id %>"><img class="profilepic" src="<%= user.profile_pic %>" /></a>
+              <% end %>
           </div>
         </td>
 
